@@ -4,7 +4,7 @@ import tensorflow as tf
 
 # Load your trained model
 print("[DEBUG] Loading model...")
-model = tf.keras.models.load_model('vgg16_class_model_2.keras') 
+model = tf.keras.models.load_model('best_model.keras') 
 print("[DEBUG] Model loaded successfully.")
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
@@ -12,7 +12,8 @@ emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutr
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 # Open webcam
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('emotions_demo.mp4')  # Replace with your video file path
 
 while True:
     ret, frame = cap.read()
